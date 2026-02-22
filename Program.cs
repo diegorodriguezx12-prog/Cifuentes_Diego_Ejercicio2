@@ -83,7 +83,7 @@ switch (rol)
         }
         break;
 
-    case 3: // Técnico IT
+    case 3:
         if ((hora >= 7 && hora <= 18) || autorizacion == "S")
         {
             Console.WriteLine("-------------------------------------------");
@@ -96,3 +96,27 @@ switch (rol)
             Console.WriteLine("Acceso denegado: Requiere autorización para horario nocturno");
         }
         break;
+    case 4:
+        if (autorizacion == "S")
+        {
+            Console.Write("¿Está acompañado por personal autorizado? (S/N): ");
+            string acompañado = Console.ReadLine().ToUpper();
+
+            if (acompañado == "S")
+            {
+                Console.WriteLine("-------------------------------------------");
+                Console.WriteLine("Acceso permitido");
+                Console.WriteLine("Nivel de permiso: Visitante Temporal");
+                Console.WriteLine("-------------------------------------------");
+            }
+            else
+            {
+                Console.WriteLine("Acceso denegado: Visitante requiere acompañamiento");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Acceso denegado: Visitante requiere autorización escrita");
+        }
+        break;
+}
