@@ -70,7 +70,7 @@ switch (rol)
         }
         break;
     case 2:
-        if (carnet == "S")
+        if (carnet == "Si")
         {
             Console.WriteLine("-------------------------------------------");
             Console.WriteLine("Acceso permitido");
@@ -84,7 +84,7 @@ switch (rol)
         break;
 
     case 3:
-        if ((hora >= 7 && hora <= 18) || autorizacion == "S")
+        if ((hora >= 7 && hora <= 18) || autorizacion == "Si")
         {
             Console.WriteLine("-------------------------------------------");
             Console.WriteLine("Acceso permitido");
@@ -97,12 +97,12 @@ switch (rol)
         }
         break;
     case 4:
-        if (autorizacion == "S")
+        if (autorizacion == "Si")
         {
-            Console.Write("¿Está acompañado por personal autorizado? (S/N): ");
+            Console.Write("¿Está acompañado por personal autorizado? (Si/No): ");
             string acompañado = Console.ReadLine().ToUpper();
 
-            if (acompañado == "S")
+            if (acompañado == "Si")
             {
                 Console.WriteLine("-------------------------------------------");
                 Console.WriteLine("Acceso permitido");
