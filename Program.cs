@@ -34,3 +34,65 @@ else if (rol < 1 || rol > 4)
     Console.WriteLine("Error: opción de rol no válida");
     return;
 }
+switch (rol)
+{
+    case 1:
+        if (dia <= 5 && (hora >= 7 && hora <= 18) && carnet == "Si")
+        {
+            if (traeUsb == "Si")
+            {
+                Console.Write("¿Está acompañado? (Si/No): ");
+                string acompañado = (Console.ReadLine());
+
+                if (acompañado == "Si" && autorizacion == "Si")
+                {
+                    Console.WriteLine("-------------------------------------------");
+                    Console.WriteLine("Acceso permitido");
+                    Console.WriteLine("Nivel de permiso: Estudiante con periféricos");
+                    Console.WriteLine("-------------------------------------------");
+                }
+                else
+                {
+                    Console.WriteLine("Acceso denegado: USB requiere acompañamiento y autorización");
+                }
+            }
+            else
+            {
+                Console.WriteLine("-------------------------------------------");
+                Console.WriteLine("Acceso permitido");
+                Console.WriteLine("Nivel de permiso: Estudiante Estándar");
+                Console.WriteLine("-------------------------------------------");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Acceso denegado: Fuera de horario o carnet no vigente");
+        }
+        break;
+    case 2:
+        if (carnet == "S")
+        {
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("Acceso permitido");
+            Console.WriteLine("Nivel de permiso: Docente - Acceso Total");
+            Console.WriteLine("-------------------------------------------");
+        }
+        else
+        {
+            Console.WriteLine("Acceso denegado: Carnet obligatorio");
+        }
+        break;
+
+    case 3: // Técnico IT
+        if ((hora >= 7 && hora <= 18) || autorizacion == "S")
+        {
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("Acceso permitido");
+            Console.WriteLine("Nivel de permiso: Técnico - Mantenimiento");
+            Console.WriteLine("-------------------------------------------");
+        }
+        else
+        {
+            Console.WriteLine("Acceso denegado: Requiere autorización para horario nocturno");
+        }
+        break;
